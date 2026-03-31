@@ -1,17 +1,39 @@
-# AI Coding Rules for Cursor
+# AI Coding Rules and Claude SKILLs
 
-Welcome to Devotts's public repository of AI coding rules for Cursor! This collection is designed to help AI developers, and AI agents themselves, improve the quality, consistency, and reliability of the code they write.
+Welcome to Devotts's public repository of AI coding rules for Cursor and SKILLs for Claude Code! This collection is designed to help AI developers, and AI agents themselves, improve the quality, consistency, and reliability of the code they write.
+
+Initially focused on Cursor rules, this repository has expanded to prioritize Claude SKILLs, which provide powerful autonomous capabilities and integrations.
+
+## Claude SKILLs (Priority)
+
+These skills enhance Claude Code with specific, powerful capabilities.
+
+---
+
+### `launch`
+
+**Description**: Mission control for autonomous projects — analyzes tasks, recommends approaches (sub-agents/teams), sets up environment (features, evals, hooks, init.sh), suggests and configures tooling (MCPs), and launches the work.
+
+---
+
+### `notebooklm`
+
+**Description**: Complete API for Google NotebookLM - full programmatic access including features not in the web UI. Create notebooks, add sources, generate all artifact types, download in multiple formats. Activates on explicit /notebooklm or intent like "create a podcast about X"
+
+---
+
+## Cursor Rules
 
 By leveraging Cursor's powerful rule-based customization, you can enforce best practices, institutionalize knowledge, and guide AI-driven development toward more robust and maintainable outcomes.
 
-## How to Use These Rules
+### How to Use Cursor Rules
 
 1.  **Clone or Fork this Repository**: Get a local copy of these rules.
 2.  **Copy to Your Project**: Copy the `.mdc` files from the `.cursor/rules/` directory into the `.cursor/rules/` directory of your own project.
 3.  **Customize**: Adapt the `globs` and content of the rules to match your project's structure and specific needs.
 4.  **Let Cursor Work**: Cursor will automatically apply these rules during your coding sessions, guiding you and any AI assistants you work with.
 
-## Rules Overview
+### Cursor Rules Overview
 
 Here is a breakdown of the rules available in this repository:
 
