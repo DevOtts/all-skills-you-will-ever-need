@@ -1,6 +1,9 @@
 ---
 name: launch
 description: Mission control for autonomous projects — analyzes tasks, recommends approaches (sub-agents/teams), sets up environment (features, evals, hooks, init.sh), suggests and configures tooling (MCPs), and launches the work.
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # /launch — Mission Control
