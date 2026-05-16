@@ -7,30 +7,13 @@ Initially focused on Cursor rules, this repository has expanded to prioritize Cl
 ## Claude SKILLs (Priority)
 
 These skills enhance Claude Code with specific, powerful capabilities.
+All skills authored by [DevOtts](https://github.com/DevOtts).
 
 ---
 
-### `launch`
+### `chrome-cdp-control`
 
-**Description**: Mission control for autonomous projects — analyzes tasks, recommends approaches (sub-agents/teams), sets up environment (features, evals, hooks, init.sh), suggests and configures tooling (MCPs), and launches the work.
-
----
-
-### `notebooklm`
-
-**Description**: Complete API for Google NotebookLM - full programmatic access including features not in the web UI. Create notebooks, add sources, generate all artifact types, download in multiple formats. Activates on explicit /notebooklm or intent like "create a podcast about X"
-
----
-
-### `app-store-optimization`
-
-**Description**: App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store.
-
----
-
-### `campaign-analytics`
-
-**Description**: Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization
+**Description**: Drive the user's real, logged-in Chrome browser via Chrome DevTools Protocol on localhost:9222 using Playwright. Trigger this skill when the user explicitly asks to "use my Chrome", "use my browser", "log into", "post on" (X, Reddit, LinkedIn, etc.), or any task that requires an authenticated session, persistent cookies, or bot-detection evasion that headless scraping cannot provide. Also trigger when the user references their CDP setup, their `~/.chrome-automation` profile, or asks Claude to manually walk through actions on a real site one step at a time. Do NOT use this skill for: simple unauthenticated content fetches (use `web_fetch`), bulk headless scraping (use a standalone Playwright script), or anything where a fresh Chromium instance would suffice. Do NOT use for tasks that can be solved by an API call to the same service.
 
 ---
 
@@ -46,27 +29,9 @@ These skills enhance Claude Code with specific, powerful capabilities.
 
 ---
 
-### `content-creator`
-
-**Description**: Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy.
-
----
-
-### `docker-setup`
-
-**Description**: 
-
----
-
 ### `favicon-builder`
 
-**Description**: 
-
----
-
-### `humanizer`
-
-**Description**: |
+**Description**: Design and ship a brand favicon that survives 16×16 — one recognizable shape, substantial strokes, and the Next.js App Router auto-detection pipeline so the asset actually appears in the browser tab. Use when replacing a default framework favicon, when the brand has a logo or wordmark too complex for 16×16, or when the user mentions "favicon", "site icon", "browser tab icon", or "the little icon next to the URL".
 
 ---
 
@@ -76,15 +41,15 @@ These skills enhance Claude Code with specific, powerful capabilities.
 
 ---
 
-### `marketing-demand-acquisition`
+### `landing-page-builder`
 
-**Description**: Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups
+**Description**: Build premium landing pages that don't smell like AI slop — concept-first atmosphere, real proof points, motion that respects users, and JSON-LD that gets you cited by Google rich results and AI search engines. Use when building a marketing site or landing page from scratch (Next.js / Tailwind / shadcn), iterating on a hero that feels generic or "Bootstrap-y", launching a SaaS / B2B / agency single-page offer, or requesting dark + light hero variants for A/B feel.
 
 ---
 
-### `marketing-strategy-pmm`
+### `launch`
 
-**Description**: Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry.
+**Description**: Mission control for autonomous projects — analyzes tasks, recommends approaches (sub-agents/teams), sets up environment (features, evals, hooks, init.sh), suggests and configures tooling (MCPs), and launches the work.
 
 ---
 
@@ -106,21 +71,21 @@ These skills enhance Claude Code with specific, powerful capabilities.
 
 ---
 
+### `notebooklm`
+
+**Description**: Complete API for Google NotebookLM - full programmatic access including features not in the web UI. Create notebooks, add sources, generate all artifact types, download in multiple formats. Activates on explicit /notebooklm or intent like "create a podcast about X"
+
+---
+
 ### `shopify-forge`
 
 **Description**: Full-stack Shopify theme developer and ecommerce execution agent. Builds, customizes, and ships Shopify themes from design files (HTML/Figma/images). Manages products, collections, publishing, and end-to-end QA with visual verification.
 
 ---
 
-### `social-media-analyzer`
+### `test-coach`
 
-**Description**: Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards.
-
----
-
-### `ui-ux-pro-max`
-
-**Description**: UI/UX design intelligence for web and mobile. Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, and check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, and mobile app. Elements: button, modal, navbar, sidebar, card, table, form, and chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, and flat design. Topics: color systems, accessibility, animation, layout, typography, font pairing, spacing, interaction states, shadow, and gradient. Integrations: shadcn/ui MCP for component search and examples.
+**Description**: Real-time test/assessment coaching assistant. Reads the browser screen via CDP (Playwright on localhost:9222) and provides instant answers, guidance, and strategy while the user takes online tests, assessments, or quizzes. Trigger this skill when the user mentions taking a test, assessment, quiz, exam, or evaluation and wants real-time help — e.g. "help me with this test", "watch my screen and give me answers", "coach me through this assessment", "I'm taking the Wonderlic/PDA/Kolbe", "read my test questions". Do NOT trigger for studying or test prep without a live browser session. Do NOT trigger for automated test-taking (clicking answers) — this skill is read-only coaching, not browser automation.
 
 ---
 
@@ -129,6 +94,7 @@ These skills enhance Claude Code with specific, powerful capabilities.
 **Description**: Install or update a recurring VPS housekeeping pack on any Linux + Docker VPS — daily Postgres logical backups, weekly Docker prune, weekly DB retention cleanup, and a 5-min memory pressure alert to Slack or Telegram. Use when the user says "set up vps maintenance", "/vps-maintenance", "install housekeeping crons", "add backup cron", "add docker cleanup cron", "add memory alert", "set up retention cleanup", "harden this vps", or when a new VPS is being commissioned and needs the standard ops baseline.
 
 ---
+
 
 ## Cursor Rules
 

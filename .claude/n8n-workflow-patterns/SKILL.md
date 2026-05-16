@@ -1,12 +1,16 @@
 ---
 name: n8n-workflow-patterns
 description: Proven workflow architectural patterns from real n8n workflows. Use when building new workflows, designing workflow structure, choosing workflow patterns, planning workflow architecture, or asking about webhook processing, HTTP API integration, database operations, AI agent workflows, batch processing, or scheduled tasks. Always consult this skill when the user asks to create, build, or design an n8n workflow, automate a process, or connect services — even if they don't explicitly mention 'patterns'. Covers webhook, API, database, AI, batch processing, and scheduled automation architectures.
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # n8n Workflow Patterns
 
 Proven architectural patterns for building n8n workflows.
 
+---
 
 ## The 6 Core Patterns
 
@@ -36,6 +40,7 @@ Based on analysis of real workflow usage:
    - Process large datasets in chunks with API rate limits
    - Pattern: Prepare → SplitInBatches → Process per batch → Accumulate → Aggregate
 
+---
 
 ## Pattern Selection Guide
 
@@ -77,6 +82,7 @@ Based on analysis of real workflow usage:
 - Nested loops (e.g., multiple categories × paginated API calls per category)
 - Example: "Fetch products for 4 markets × 1000 per API call → Aggregate all results"
 
+---
 
 ## Common Workflow Components
 
@@ -112,6 +118,7 @@ All patterns share these building blocks:
 - **Stop and Error** - Explicit failure
 - **Continue On Fail** - Per-node setting
 
+---
 
 ## Workflow Creation Checklist
 
@@ -143,6 +150,7 @@ When building ANY workflow, follow this checklist:
 - [ ] Monitor first executions
 - [ ] Document workflow purpose and data flow
 
+---
 
 ## Data Flow Patterns
 
@@ -179,6 +187,7 @@ Main Flow → [Success Path]
 ```
 **Use when**: Need separate error handling workflow
 
+---
 
 ## Batch Processing Pattern
 
@@ -240,6 +249,7 @@ if (looksLikeRequest) {
 // Normal response verification below...
 ```
 
+---
 
 ## Integration-Specific Gotchas
 
@@ -267,6 +277,7 @@ if (diff > threshold) { flag(); }
 if (Math.abs(diff) > threshold) { flag(); }
 ```
 
+---
 
 ## Common Gotchas
 
@@ -309,6 +320,7 @@ See: n8n Expression Syntax skill
 **Solution**: Use {{}} around expressions
 - See n8n Expression Syntax skill for details
 
+---
 
 ## Integration with Other Skills
 
@@ -336,6 +348,7 @@ These skills work together with Workflow Patterns:
 - Fix validation errors
 - Ensure workflow correctness before deployment
 
+---
 
 ## Pattern Statistics
 
@@ -364,6 +377,7 @@ Common workflow patterns:
 - Medium (6-10 nodes): 38%
 - Complex (11+ nodes): 20%
 
+---
 
 ## Quick Start Examples
 
@@ -413,6 +427,7 @@ Common workflow patterns:
 6. Loop (back to step 3 until done)
 ```
 
+---
 
 ## Detailed Pattern Files
 
@@ -424,6 +439,7 @@ For comprehensive guidance on each pattern:
 - **[ai_agent_workflow.md](ai_agent_workflow.md)** - AI agents, tools, memory, langchain nodes
 - **[scheduled_tasks.md](scheduled_tasks.md)** - Cron schedules, reports, maintenance tasks
 
+---
 
 ## Real Template Examples
 
@@ -448,6 +464,7 @@ From n8n template library:
 
 Use `search_templates` and `get_template` from n8n-mcp tools to find examples!
 
+---
 
 ## Best Practices
 
@@ -473,6 +490,7 @@ Use `search_templates` and `get_template` from n8n-mcp tools to find examples!
 - Mix multiple patterns without clear boundaries
 - Deploy without testing
 
+---
 
 ## Summary
 

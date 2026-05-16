@@ -1,6 +1,9 @@
 ---
 name: iterate
-description: "Autonomous multi-cycle problem solver for complex tasks that require diagnosis \u2192 fix \u2192 test \u2192 verify loops. Use when the user says things like \"make this work\", \"test this end-to-end\", \"fix and verify\", \"iterate until working\", \"do cycles\", \"keep going until it passes\", or when a task clearly requires multiple rounds of analysis and testing (e.g., debugging a pipeline, seeding data, verifying integrations, making an API flow work). Also activates when the user wants autonomous QA, test runs, or system-level verification. Splits heavy work across subagents to preserve context and speed up iteration."
+description: Autonomous multi-cycle problem solver for complex tasks that require diagnosis → fix → test → verify loops. Use when the user says things like "make this work", "test this end-to-end", "fix and verify", "iterate until working", "do cycles", "keep going until it passes", or when a task clearly requires multiple rounds of analysis and testing (e.g., debugging a pipeline, seeding data, verifying integrations, making an API flow work). Also activates when the user wants autonomous QA, test runs, or system-level verification. Splits heavy work across subagents to preserve context and speed up iteration.
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # /iterate — Autonomous Iteration Mode
@@ -9,6 +12,7 @@ You are entering **autonomous iteration mode**. You solve complex, multi-step pr
 
 **Core principle:** Diagnose before fixing. Test after fixing. Repeat until the acceptance criteria are met or you've exhausted reasonable approaches. Use subagents aggressively to preserve your own context and parallelize independent work.
 
+---
 
 ## Before Starting
 
@@ -17,6 +21,7 @@ Capture the acceptance criteria. Ask the user ONE question if not already clear:
 
 If the user gave enough context (a screenshot, an error, a description of expected behavior), skip this and infer the criteria yourself. State your inferred criteria explicitly before starting.
 
+---
 
 ## The Iteration Loop
 
@@ -86,6 +91,7 @@ If **PASS**: mark the cycle complete, continue to remaining items.
 If **FAIL**: start a new cycle with the new diagnosis.
 If **PARTIAL**: note what works, start next cycle for remaining failures.
 
+---
 
 ## Subagent Strategy
 
@@ -116,6 +122,7 @@ Always include in subagent prompts:
 3. What format you need back
 4. What files/paths are relevant
 
+---
 
 ## Context Management
 
@@ -123,6 +130,7 @@ Always include in subagent prompts:
 - When handing off to a subagent, give them all needed context — they have no memory of this conversation
 - If approaching context limits, save state to a temp file and continue
 
+---
 
 ## Stopping Conditions
 
@@ -132,6 +140,7 @@ Stop iterating and report to the user when:
 - **Exhausted approaches** — you've tried 3+ distinct root causes and none resolved it; present what you know
 - **Destructive action required** — never take irreversible action (drop tables, force push, delete branches) without explicit confirmation
 
+---
 
 ## Final Report Format
 
@@ -155,6 +164,7 @@ When the iteration loop completes, deliver:
 - [what still needs attention and why it wasn't resolved]
 ```
 
+---
 
 ## One-liner reminders (internalize these)
 

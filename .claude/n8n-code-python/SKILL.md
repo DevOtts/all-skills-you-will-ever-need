@@ -1,12 +1,16 @@
 ---
 name: n8n-code-python
 description: Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node syntax, working with standard library, or need to understand Python limitations in n8n Code nodes. Use this skill when the user specifically requests Python for an n8n Code node. Note — JavaScript is recommended for 95% of use cases — only use Python when the user explicitly prefers it or the task requires Python-specific standard library capabilities (regex, hashlib, statistics).
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # Python Code Node (Beta)
 
 Expert guidance for writing Python code in n8n Code nodes.
 
+---
 
 ## ⚠️ Important: JavaScript First
 
@@ -21,6 +25,7 @@ Expert guidance for writing Python code in n8n Code nodes.
 - No external library limitations
 - Better n8n documentation and community support
 
+---
 
 ## Quick Start
 
@@ -51,6 +56,7 @@ return processed
 5. **CRITICAL LIMITATION**: **No external libraries** (no requests, pandas, numpy)
 6. **Standard library only**: json, datetime, re, base64, hashlib, urllib.parse, math, random, statistics
 
+---
 
 ## Mode Selection Guide
 
@@ -101,6 +107,7 @@ return [{
 }]
 ```
 
+---
 
 ## Python Modes: Beta vs Native
 
@@ -148,6 +155,7 @@ return processed
 
 **Recommendation**: Use **Python (Beta)** for better n8n integration.
 
+---
 
 ## Data Access Patterns
 
@@ -228,6 +236,7 @@ return [{
 
 **See**: [DATA_ACCESS.md](DATA_ACCESS.md) for comprehensive guide
 
+---
 
 ## Critical: Webhook Data Structure
 
@@ -251,6 +260,7 @@ name = webhook_data.get("name")
 
 **See**: [DATA_ACCESS.md](DATA_ACCESS.md) for full webhook structure details
 
+---
 
 ## Return Format Requirements
 
@@ -313,6 +323,7 @@ return [{"data": value}]  # Should be {"json": value}
 
 **See**: [ERROR_PATTERNS.md](ERROR_PATTERNS.md) #2 for detailed error solutions
 
+---
 
 ## Critical Limitation: No External Libraries
 
@@ -362,6 +373,7 @@ import statistics  # ✅ Statistical functions
 
 **See**: [STANDARD_LIBRARY.md](STANDARD_LIBRARY.md) for complete reference
 
+---
 
 ## Common Patterns Overview
 
@@ -481,6 +493,7 @@ else:
 
 **See**: [COMMON_PATTERNS.md](COMMON_PATTERNS.md) for 10 detailed Python patterns
 
+---
 
 ## Error Prevention - Top 5 Mistakes
 
@@ -544,6 +557,7 @@ email = _json.get("body", {}).get("email", "no-email")
 
 **See**: [ERROR_PATTERNS.md](ERROR_PATTERNS.md) for comprehensive error guide
 
+---
 
 ## Standard Library Reference
 
@@ -587,6 +601,7 @@ average = mean([1, 2, 3, 4, 5])
 
 **See**: [STANDARD_LIBRARY.md](STANDARD_LIBRARY.md) for complete reference
 
+---
 
 ## Best Practices
 
@@ -643,6 +658,7 @@ print(f"Processing {len(items)} items")
 print(f"First item: {items[0] if items else 'None'}")
 ```
 
+---
 
 ## Production Gotchas
 
@@ -668,6 +684,7 @@ data = _node['HTTP Request'].first()['json']
 
 `$getWorkflowStaticData('global')` may not be available in Python Beta mode. If you need to accumulate data across SplitInBatches iterations, use a JavaScript Code node for the accumulation logic instead.
 
+---
 
 ## When to Use Python vs JavaScript
 
@@ -689,6 +706,7 @@ data = _node['HTTP Request'].first()['json']
 - ❌ Simple conditionals → Use **IF** or **Switch** node
 - ❌ HTTP requests only → Use **HTTP Request** node
 
+---
 
 ## Integration with Other Skills
 
@@ -723,6 +741,7 @@ data = _node['HTTP Request'].first()['json']
 - Comparison of JavaScript vs Python features
 - Migration from Python to JavaScript
 
+---
 
 ## Quick Reference Checklist
 
@@ -739,6 +758,7 @@ Before deploying Python Code nodes, verify:
 - [ ] **Mode selection** - "All Items" for most cases
 - [ ] **Output consistent** - All code paths return same structure
 
+---
 
 ## Additional Resources
 
@@ -752,5 +772,6 @@ Before deploying Python Code nodes, verify:
 - Code Node Guide: https://docs.n8n.io/code/code-node/
 - Python in n8n: https://docs.n8n.io/code/builtin/python-modules/
 
+---
 
 **Ready to write Python in n8n Code nodes - but consider JavaScript first!** Use Python for specific needs, reference the error patterns guide to avoid common mistakes, and leverage the standard library effectively.

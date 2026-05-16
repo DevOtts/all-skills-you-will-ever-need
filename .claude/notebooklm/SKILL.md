@@ -1,6 +1,9 @@
 ---
 name: notebooklm
 description: Complete API for Google NotebookLM - full programmatic access including features not in the web UI. Create notebooks, add sources, generate all artifact types, download in multiple formats. Activates on explicit /notebooklm or intent like "create a podcast about X"
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 <!-- notebooklm-py v0.3.3 -->
 

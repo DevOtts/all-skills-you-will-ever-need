@@ -1,6 +1,26 @@
 ---
 name: favicon-builder
-description: 
+description: Design and ship a brand favicon that survives 16×16 — one recognizable shape, substantial strokes, and the Next.js App Router auto-detection pipeline so the asset actually appears in the browser tab. Use when replacing a default framework favicon, when the brand has a logo or wordmark too complex for 16×16, or when the user mentions "favicon", "site icon", "browser tab icon", or "the little icon next to the URL".
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
+---
+
+# Favicon Builder
+
+Design and ship a brand favicon that survives 16×16 — one recognizable shape, substantial strokes, and the Next.js App Router auto-detection pipeline so the asset actually appears in the browser tab.
+
+---
+
+## When to use this skill
+
+- Replacing the default Next.js / Vite / CRA favicon with something brand-aligned
+- A brand launch where the tab icon is one of the last details still showing the framework default
+- The brand has a complex logo or wordmark that's unreadable at small sizes and needs to be reduced to a single mark
+- The user types `/favicon-builder` or mentions "favicon", "site icon", "browser tab icon", "tab logo", or "the little icon next to the URL"
+
+Do NOT use for: full logo design (use `/design` or `/brand`), marketing imagery, social share previews (those need `opengraph-image.png`, not favicons), or app store icons (different ratios and rules).
+
 ---
 
 ## 1. Implementation patterns (Next.js 15 App Router)
@@ -80,6 +100,7 @@ That's it. No `public/favicon.ico` needed. No manifest changes. No metadata conf
 
 Notice: the chart-line stroke is `11` (4.3% of 256, the minimum that survives 16px), the arrow stroke is `22` (8.6%, much safer). The arrow is the dominant element on purpose — at 16px the chart line nearly disappears, but the chevron still reads as "up and to the right."
 
+---
 
 ## 2. Design rules
 
@@ -99,6 +120,7 @@ These are not opinions. These are the rules that decide whether your favicon rea
 
 **Test at 16×16 and 32×32.** Open the SVG in a browser, zoom out, squint. If you can't tell what it is at 16px from arm's length, redesign.
 
+---
 
 ## 3. Common pitfalls
 
@@ -112,6 +134,7 @@ These are not opinions. These are the rules that decide whether your favicon rea
 - **Leaving the Next.js default `favicon.ico` in `src/app/`** — it has higher precedence than `icon.svg` in some Next versions; delete it
 - **Using `viewBox="0 0 100 100"` or odd dimensions** — pixel math gets fractional, edges look fuzzy. Stick with 256.
 
+---
 
 ## 4. Workflow when invoked
 
@@ -129,6 +152,7 @@ These are not opinions. These are the rules that decide whether your favicon rea
 9. **Take a screenshot at 32×32** if a browser or rasterizer is available — open the SVG, zoom to 32×32, capture. Otherwise just open it in the browser tab and squint
 10. **Report to user** — list the files written, paste the design rationale ("we used X shape from your mark because Y"), and prompt them to hard-refresh their dev server (browsers cache favicons aggressively — `Cmd+Shift+R` or open in incognito)
 
+---
 
 ## 5. Reference: the Profits Guru build
 
@@ -145,6 +169,7 @@ These are not opinions. These are the rules that decide whether your favicon rea
 
 This is the canonical example for the skill. When you're stuck, mimic the structure: round dark badge + one strong geometric shape + minimal secondary detail.
 
+---
 
 ## 6. Hard rules — never violate
 
@@ -161,6 +186,7 @@ This is the canonical example for the skill. When you're stuck, mimic the struct
 - ✅ Always use `viewBox="0 0 256 256"` unless there's a specific reason not to
 - ✅ Always copy `icon.svg` to `apple-icon.svg` so iOS Safari and Add-to-Home-Screen get a clean asset
 
+---
 
 ## Sibling skill
 

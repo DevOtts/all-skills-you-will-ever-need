@@ -1,6 +1,9 @@
 ---
 name: vps-maintenance
-description: "Install or update a recurring VPS housekeeping pack on any Linux + Docker VPS \u2014 daily Postgres logical backups, weekly Docker prune, weekly DB retention cleanup, and a 5-min memory pressure alert to Slack or Telegram. Use when the user says \"set up vps maintenance\", \"/vps-maintenance\", \"install housekeeping crons\", \"add backup cron\", \"add docker cleanup cron\", \"add memory alert\", \"set up retention cleanup\", \"harden this vps\", or when a new VPS is being commissioned and needs the standard ops baseline."
+description: Install or update a recurring VPS housekeeping pack on any Linux + Docker VPS — daily Postgres logical backups, weekly Docker prune, weekly DB retention cleanup, and a 5-min memory pressure alert to Slack or Telegram. Use when the user says "set up vps maintenance", "/vps-maintenance", "install housekeeping crons", "add backup cron", "add docker cleanup cron", "add memory alert", "set up retention cleanup", "harden this vps", or when a new VPS is being commissioned and needs the standard ops baseline.
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # /vps-maintenance — VPS Housekeeping Pack
@@ -22,6 +25,7 @@ You install a proven, idempotent maintenance baseline on a Docker-based VPS. It 
 
 This skill is **idempotent**: re-running updates existing scripts in place and rewrites the cron lines without duplicating them. Safe to run on a fresh VPS or one that already has some of these scripts.
 
+---
 
 ## PHASE 0 — INTERVIEW
 
@@ -40,6 +44,7 @@ Ask the user these questions in one message, with sensible defaults shown. Skip 
 
 If something is obvious from prior conversation (existing variables, a known-host shortcut the user has set up, environment), do not re-ask.
 
+---
 
 ## PHASE 1 — PREFLIGHT CHECKS
 
@@ -72,6 +77,7 @@ docker ps --filter "name=postgres" --filter "status=running" --format "{{.Names}
 - No swap configured (recommend adding 2 GB, but don't auto-add unless user agrees)
 - Postgres container not found AND user said yes to Postgres earlier — re-ask
 
+---
 
 ## PHASE 2 — DETECT DB CONTENTS TO CLEAN (only if Postgres present)
 
@@ -94,6 +100,7 @@ FROM "Message";
 
 If the numbers look surprising (e.g. 90% of rows would be deleted), confirm with the user before proceeding.
 
+---
 
 ## PHASE 3 — INSTALL SCRIPTS
 
@@ -279,6 +286,7 @@ echo "---" >> "$LOG"
 
 **Smoke test:** run once, check `tail /var/log/retention_cleanup.log` for non-error output.
 
+---
 
 ## PHASE 4 — INSTALL CRON (IDEMPOTENT)
 
@@ -305,6 +313,7 @@ crontab -l
 
 If the user is in a non-UTC primary timezone and these conflict with peak hours, adjust by adding or subtracting hours uniformly.
 
+---
 
 ## PHASE 5 — REPORT
 
@@ -332,6 +341,7 @@ Logs:
 Next time you want to inspect: `tail /var/log/*cleanup.log /var/backups/postgres/backup.log`
 ```
 
+---
 
 ## EDGE CASES
 

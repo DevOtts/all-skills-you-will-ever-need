@@ -1,12 +1,16 @@
 ---
 name: n8n-validation-expert
 description: Interpret validation errors and guide fixing them. Use when encountering validation errors, validation warnings, false positives, operator structure issues, or need help understanding validation results. Also use when asking about validation profiles, error types, the validation loop process, or auto-fix capabilities. Consult this skill whenever a validate_node or validate_workflow call returns errors or warnings — it knows which warnings are false positives and which errors need real fixes.
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # n8n Validation Expert
 
 Expert guide for interpreting and fixing n8n validation errors.
 
+---
 
 ## Validation Philosophy
 
@@ -19,6 +23,7 @@ Validation is typically iterative:
 
 **Key insight**: Validation is an iterative process, not one-shot!
 
+---
 
 ## Error Severity Levels
 
@@ -67,6 +72,7 @@ Validation is typically iterative:
 - `optimization` - Could be more efficient
 - `alternative` - Better way to achieve same result
 
+---
 
 ## The Validation Loop
 
@@ -129,6 +135,7 @@ const result3 = validate_node({
 
 **This is normal!** Don't be discouraged by multiple iterations.
 
+---
 
 ## Validation Profiles
 
@@ -181,6 +188,7 @@ Choose the right profile for your stage:
 **Pros**: Maximum safety
 **Cons**: Many warnings, some false positives
 
+---
 
 ## Common Error Types
 
@@ -324,6 +332,7 @@ patchNodeField: invalid or unsafe regex pattern
 
 **How to fix**: Check regex syntax. Nested quantifiers like `(a+)+` and overlapping alternations like `(\w|\d)+` are rejected as ReDoS risks. Simplify the pattern.
 
+---
 
 ## Auto-Sanitization System
 
@@ -403,6 +412,7 @@ API returns corrupt data but rejects updates
 
 **Solution**: May require manual database intervention
 
+---
 
 ## False Positives
 
@@ -462,6 +472,7 @@ validate_node({
 })
 ```
 
+---
 
 ## Validation Result Structure
 
@@ -534,6 +545,7 @@ result.warnings.forEach(warning => {
 // Not required but may enhance workflow
 ```
 
+---
 
 ## Workflow Validation
 
@@ -600,6 +612,7 @@ validate_workflow({
 
 **Fix**: Connect node or remove if unused
 
+---
 
 ## Recovery Strategies
 
@@ -654,6 +667,7 @@ n8n_autofix_workflow({
 })
 ```
 
+---
 
 ## Auto-Fix Capabilities
 
@@ -690,6 +704,7 @@ n8n_autofix_workflow({
 
 **Post-update guidance**: For version upgrades, check the `postUpdateGuidance` field in the response for step-by-step migration instructions.
 
+---
 
 ## Best Practices
 
@@ -715,6 +730,7 @@ n8n_autofix_workflow({
 - Deploy with unresolved errors
 - Ignore all warnings (some are important!)
 
+---
 
 ## Detailed Guides
 
@@ -723,6 +739,7 @@ For comprehensive error catalogs and false positive examples:
 - **[ERROR_CATALOG.md](ERROR_CATALOG.md)** - Complete list of error types with examples
 - **[FALSE_POSITIVES.md](FALSE_POSITIVES.md)** - When warnings are acceptable
 
+---
 
 ## Summary
 

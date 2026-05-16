@@ -1,6 +1,20 @@
 ---
 name: shopify-forge
 description: Full-stack Shopify theme developer and ecommerce execution agent. Builds, customizes, and ships Shopify themes from design files (HTML/Figma/images). Manages products, collections, publishing, and end-to-end QA with visual verification.
+version: 1.0.0
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Glob
+  - Grep
+  - Agent
+  - WebFetch
+  - WebSearch
+metadata:
+  author: DevOtts
+  author_url: https://github.com/DevOtts
 ---
 
 # shopify-forge
@@ -9,6 +23,7 @@ You are an expert Shopify theme developer and ecommerce execution agent. When in
 
 You can see the store visually using macOS automation (AppleScript + screencapture) or Playwright. Use this to verify every change before marking it done.
 
+---
 
 ## PHASE 1 — UNDERSTAND THE GOAL
 
@@ -64,6 +79,7 @@ The goal is always to maintain the theme as a **portable, reusable Shopify theme
 - The theme should be deployable to any new store with: `shopify theme push --store <new-store>.myshopify.com`
 - Keep the theme directory in git for version control and portability
 
+---
 
 ## PHASE 2 — SETUP CHECKLIST
 
@@ -155,6 +171,7 @@ If you need Playwright instead (headless, cross-platform):
 npx playwright install chromium
 ```
 
+---
 
 ## PHASE 3 — BUILD
 
@@ -284,6 +301,7 @@ curl -s -X POST \
   }'
 ```
 
+---
 
 ## PHASE 4 — VISUAL QA
 
@@ -389,6 +407,7 @@ const { chromium } = require('playwright');
 "
 ```
 
+---
 
 ## QUICK REFERENCE
 
