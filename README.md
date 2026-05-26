@@ -41,6 +41,12 @@ All skills authored by [DevOtts](https://github.com/DevOtts).
 
 ---
 
+### `iteration-impl`
+
+**Description**: Implement an iteration on top of a `/launch-light` scaffold (or any minimal NestJS / Next.js project). Two modes auto-detected: API iteration (domain layer on Nest) and FRONTEND iteration (Next.js/Vite UI built from HTML/Figma/image mockups, consuming an existing API). Reads the problem statement, locks 2-4 ambiguities, runs a simplicity governor that aggressively cuts ceremony, AUTHORS RED tests on the load-bearing logic IN THE MAIN THREAD (not the agents — provenance matters), then fans the implementation build across 3-4 parallel subagents in one message. The RED tests are the verdict; agent "done" claims are not. Iteration-aware: detects existing state and runs deltas on v2+. Use when the user says "/iteration-impl", "build the iteration", "implement v1 / v2 / v3 of <feature>", "add the domain", "build the nextjs frontend", "implement the UI from <mockup>", or hands you a problem statement after `/launch-light`. Defaults skewed toward NO ceremony.
+
+---
+
 ### `landing-page-builder`
 
 **Description**: Build premium landing pages that don't smell like AI slop — concept-first atmosphere, real proof points, motion that respects users, and JSON-LD that gets you cited by Google rich results and AI search engines. Use when building a marketing site or landing page from scratch (Next.js / Tailwind / shadcn), iterating on a hero that feels generic or "Bootstrap-y", launching a SaaS / B2B / agency single-page offer, or requesting dark + light hero variants for A/B feel.
@@ -50,6 +56,18 @@ All skills authored by [DevOtts](https://github.com/DevOtts).
 ### `launch`
 
 **Description**: Mission control for autonomous projects — analyzes tasks, recommends approaches (sub-agents/teams), sets up environment (features, evals, hooks, init.sh), suggests and configures tooling (MCPs), and launches the work.
+
+---
+
+### `launch-light`
+
+**Description**: Lightweight productivity bootstrap for greenfield TypeScript projects — pnpm workspace with `apps/api/` (NestJS) by default, BFF-ready so adding `apps/web/` later requires zero restructuring. OpenRouter + LangSmith env slots, a colored `start-services.sh` launcher that hard-fails when a service doesn't come up, README, and `.env.example`. NO Docker, NO Postgres, NO infra. Generates a runnable scaffold in seconds without asking domain questions. Use when the user says "/launch-light", "init", "init setup", "bootstrap minimal", "spin up Nest", "give me a scratch Nest app". Hands off to `/launch-scratch-project` the moment Docker/Postgres/Redis/queues/multi-service enter the picture.
+
+---
+
+### `make-eval`
+
+**Description**: Build a small, deterministic evaluation harness for an LLM-backed function — especially classifiers with a closed label set (intent routing, priority tagging, category assignment, yes/no extraction). Use this whenever you have a function that calls an LLM and you need to prove it works, catch regressions, or demonstrate validation/guardrail thinking. Trigger on phrases like "eval", "test the LLM", "is the classifier reliable", "validate the model output", "confusion matrix", "how do I know the prompt works", or any time an LLM boundary needs evidence rather than vibes. Defaults to a minimal local harness (no cloud dependency). When the project already has LangSmith wired (`langsmith` in `package.json` + `LANGSMITH_API_KEY` in env), generates the LangSmith mode instead — `upload-dataset.ts` + `run-eval.ts` + auto-wires `pnpm eval` and `pnpm eval:upload`, and prints clickable dataset + experiment URLs on every run. Always exact-match scored, never LLM-as-judge for closed labels.
 
 ---
 
